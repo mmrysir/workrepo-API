@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 
 Route::post('/admin', 'App\Http\Controllers\AdminController@store');
+Route::post('/admin', 'App\Http\Controllers\AdminController@store');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
