@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Attendace;
+use App\Models\Settings;
 
-class AttendaceController extends Controller
+class SettingsController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // 
-       
-        return Attendace::all();
+        //
+        return Settings::all();
     }
 
     /**
@@ -28,7 +27,7 @@ class AttendaceController extends Controller
     public function store(Request $request)
     {
         //
-        return Attendace::create($request->all());
+        return Settings::create($request->all());
     }
 
     /**
@@ -40,7 +39,7 @@ class AttendaceController extends Controller
     public function show($id)
     {
         //
-        return Attendace::find($id);
+        return Settings::find($id);
     }
 
     /**
@@ -53,9 +52,9 @@ class AttendaceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $attendace = Attendace::find($id);
-        $attendace->update($request->all());
-        return $attendace;
+        $settings = Settings::find($id);
+        $settings->update($request->all());
+        return $settings;
     }
 
     /**
@@ -66,13 +65,13 @@ class AttendaceController extends Controller
      */
     public function destroy($id)
     {
-        $attendace = Attendace::find($id);
-        $attendace->delete();
+        $settings = Settings::find($id);
+        $settings->delete();
         //
     }
 
     public function search($name)
     {
-        return  Attendace::where('name','like','%'.$name.'%')->get();
+        return  Settings::where('name','like','%'.$name.'%')->get();
     }
 }

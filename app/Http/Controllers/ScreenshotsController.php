@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Attendace;
+use App\Models\Screenshots;
 
-class AttendaceController extends Controller
+class ScreenshotsController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,7 +16,7 @@ class AttendaceController extends Controller
     {
         // 
        
-        return Attendace::all();
+        return Screenshots::all();
     }
 
     /**
@@ -28,7 +28,7 @@ class AttendaceController extends Controller
     public function store(Request $request)
     {
         //
-        return Attendace::create($request->all());
+        return Screenshots::create($request->all());
     }
 
     /**
@@ -40,7 +40,7 @@ class AttendaceController extends Controller
     public function show($id)
     {
         //
-        return Attendace::find($id);
+        return Screenshots::find($id);
     }
 
     /**
@@ -53,9 +53,9 @@ class AttendaceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $attendace = Attendace::find($id);
-        $attendace->update($request->all());
-        return $attendace;
+        $screenshots =Screenshots::find($id);
+        $screenshots>update($request->all());
+        return $screenshots;
     }
 
     /**
@@ -66,13 +66,14 @@ class AttendaceController extends Controller
      */
     public function destroy($id)
     {
-        $attendace = Attendace::find($id);
-        $attendace->delete();
+        $screenshots = Sreenshots::find($id);
+        $screenshots->delete();
         //
     }
 
     public function search($name)
     {
-        return  Attendace::where('name','like','%'.$name.'%')->get();
+        return  Screenshots::where('name','like','%'.$name.'%')->get();
     }
+  
 }

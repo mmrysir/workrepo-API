@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Attendace;
+use App\Models\Projects;
 
-class AttendaceController extends Controller
+class ProjectController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // 
-       
-        return Attendace::all();
+        //
+        return Projects::all();
     }
 
     /**
@@ -28,7 +27,8 @@ class AttendaceController extends Controller
     public function store(Request $request)
     {
         //
-        return Attendace::create($request->all());
+
+        return Projects::create($request->all());
     }
 
     /**
@@ -40,7 +40,7 @@ class AttendaceController extends Controller
     public function show($id)
     {
         //
-        return Attendace::find($id);
+        return Projects::find($id);
     }
 
     /**
@@ -53,9 +53,10 @@ class AttendaceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $attendace = Attendace::find($id);
-        $attendace->update($request->all());
-        return $attendace;
+
+        $projects = Projects::find($id);
+        $projects->update($request->all());
+        return $projects;
     }
 
     /**
@@ -66,13 +67,8 @@ class AttendaceController extends Controller
      */
     public function destroy($id)
     {
-        $attendace = Attendace::find($id);
-        $attendace->delete();
         //
-    }
-
-    public function search($name)
-    {
-        return  Attendace::where('name','like','%'.$name.'%')->get();
+        $admin = Attendace::find($id);
+        $admin->delete();
     }
 }
